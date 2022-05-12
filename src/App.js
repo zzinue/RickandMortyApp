@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { Routes, Route } from 'react-router-dom'
+import Home from './Pages/Home';
+import CardDetails from './Pages/Details';
+import About from './Pages/About';
 
+
+
+/* 
+1.- tiene una pagina home, donde nos muestra primeros 2' personajes
+2. tiene una pagina about donde habla de ustedes como devs
+3.- estilos
+4.- al hacer lick a un personake me direcciona a una pantalla detall del personaje
+
+Retos investigar paginacion e implementarla en home 
+*/
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/character/:id" element={<CardDetails />} />
+      </Routes>
+
+
+    </div >
   );
 }
 
